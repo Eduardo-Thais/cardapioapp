@@ -16,23 +16,26 @@ public class DataConfiguration {
 	@Bean
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl(System.getenv("JDBC_DATABASE_URL"));
-        //dataSource.setUsername("");
-        //dataSource.setPassword("");
+        //dataSource.setDriverClassName("org.postgresql.Driver");
+        //dataSource.setUrl(System.getenv("JDBC_DATABASE_URL"));
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost/cardapiodb");
+        dataSource.setUsername("root");
+        dataSource.setPassword("");
         return dataSource;
     }
 	
 	@Bean
 	public JpaVendorAdapter jpaVendorAdapter(){
 		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-		adapter.setDatabase(Database.POSTGRESQL);
+		//adapter.setDatabase(Database.POSTGRESQL);
+		adapter.setDatabase(Database.MYSQL);
 		adapter.setShowSql(true);
 		adapter.setGenerateDdl(true);
-		adapter.setDatabasePlatform("org.hibernate.dialect.PostgreSQLDialect");
+		adapter.setDatabasePlatform("org.hibernate.dialect.MySQL5InnoDBDialect");
+		//adapter.setDatabasePlatform("org.hibernate.dialect.PostgreSQLDialect");
 		adapter.setPrepareConnection(true);
 		return adapter;
 	}
-	
 	
 }
