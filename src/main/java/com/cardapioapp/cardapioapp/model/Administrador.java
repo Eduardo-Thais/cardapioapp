@@ -1,14 +1,27 @@
-package com.cardapioapp.model;
+package com.cardapioapp.cardapioapp.model;
+
+import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 
 @Entity
-public class Administrador {
+@Table(name = "Administrador")
+public class Administrador implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
 	private Restaurante restaurante;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 	
 	private String nome;
 	private String senha;
@@ -24,6 +37,18 @@ public class Administrador {
 		
 	}
 	
+	
+	
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
 	public String getNome() {
 		return nome;
 	}

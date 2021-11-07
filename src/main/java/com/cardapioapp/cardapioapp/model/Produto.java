@@ -1,24 +1,30 @@
-package com.cardapioapp.model;
+package com.cardapioapp.cardapioapp.model;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 
 @Entity
-public class Produto {
+@Table(name = "Produto")
+public class Produto implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long produto;
+	private long id;
 
-	@ManyToMany
-	private List<Pedido> pedido;
+	@ManyToMany(mappedBy="produtos", cascade = CascadeType.ALL)
+	private List<Pedido> pedidos = new ArrayList<Pedido>();
 	
 	private String descrição;
 	private String tipo;
@@ -39,6 +45,24 @@ public class Produto {
 	}
 	
 	
+	
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
 	public String getDescrição() {
 		return descrição;
 	}

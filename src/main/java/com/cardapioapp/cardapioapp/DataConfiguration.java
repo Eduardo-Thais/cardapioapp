@@ -32,7 +32,8 @@ public class DataConfiguration {
 		adapter.setDatabase(Database.MYSQL);
 		adapter.setShowSql(true);
 		adapter.setGenerateDdl(true);
-		adapter.setDatabasePlatform("org.hibernate.dialect.MySQL5InnoDBDialect");
+		adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
+		//adapter.setDatabasePlatform("org.hibernate.dialect.MySQL5InnoDBDialect");
 		//adapter.setDatabasePlatform("org.hibernate.dialect.PostgreSQLDialect");
 		adapter.setPrepareConnection(true);
 		return adapter;
