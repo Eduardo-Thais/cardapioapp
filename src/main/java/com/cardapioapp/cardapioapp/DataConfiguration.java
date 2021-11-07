@@ -19,7 +19,7 @@ public class DataConfiguration {
         //dataSource.setDriverClassName("org.postgresql.Driver");
         //dataSource.setUrl(System.getenv("JDBC_DATABASE_URL"));
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost/cardapiodb");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/cardapiodb");
         dataSource.setUsername("root");
         dataSource.setPassword("");
         return dataSource;

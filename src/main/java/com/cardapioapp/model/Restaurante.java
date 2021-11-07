@@ -1,16 +1,14 @@
 package com.cardapioapp.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 
 @Entity
-public class Restaurante implements Serializable{
+public class Restaurante {
 
-	private static final long serialVersionUID = 1L;
+	
 	
 	@OneToMany
 	private Mesa mesa;
