@@ -3,6 +3,7 @@ package com.cardapioapp.cardapioapp.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -21,18 +22,20 @@ public class Restaurante implements Serializable{
 	
 	
 	
-	@OneToMany(mappedBy="restaurante",orphanRemoval=true)
-	@Cascade(org.hibernate.annotations.CascadeType.ALL)
-	private List<Mesa> mesa = new ArrayList<Mesa>();
+	@OneToMany(mappedBy="restaurante")
+	private List<Mesa> mesa = new ArrayList<>(0);
+
 	
-	@ManyToOne
-	private Administrador administrador;
+	
+	
+	@ManyToMany(mappedBy="restaurante", cascade = CascadeType.ALL)
+	private List<Administrador> administrador = new ArrayList<Administrador>();
 	
 	private String nome;
-	private int cnpj;
+	private String cnpj;
 	
 	
-	public Restaurante(String nome, int cnpj) {
+	public Restaurante(String nome, String cnpj) {
 		super();
 		this.nome = nome;
 		this.cnpj = cnpj;
@@ -60,10 +63,10 @@ public class Restaurante implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getCnpj() {
+	public String getCnpj() {
 		return cnpj;
 	}
-	public void setCnpj(int cnpj) {
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 	

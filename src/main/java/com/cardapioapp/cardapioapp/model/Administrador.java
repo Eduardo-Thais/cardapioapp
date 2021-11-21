@@ -1,13 +1,11 @@
 package com.cardapioapp.cardapioapp.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 
 
 @Entity
@@ -16,8 +14,13 @@ public class Administrador implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToOne
-	private Restaurante restaurante;
+	@ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+        name = "Adiministrador_Restaurante", 
+        joinColumns = { @JoinColumn(name = "administrador_id") }, 
+        inverseJoinColumns = { @JoinColumn(name = "restaurante_id") }
+    )
+	private List<Restaurante> restaurante = new ArrayList<Restaurante>();
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

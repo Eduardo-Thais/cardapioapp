@@ -18,14 +18,15 @@ public class Mesa implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@OneToMany(mappedBy="mesa",orphanRemoval=true)
-	@Cascade(org.hibernate.annotations.CascadeType.ALL)
-	private List<Pedido> pedidos = new ArrayList<Pedido>();
+	@OneToMany(mappedBy="mesa")
+	private List<Pedido> pedidos = new ArrayList<>(0);
 	
 	
+
 	@ManyToOne
-	@JoinColumn(name = "restaurante", nullable = false)
-	private Restaurante restaurante = new Restaurante();
+	@JoinColumn(name = "restaurante",referencedColumnName = "id", nullable=false)
+	private Restaurante restaurante;
+	
 	
 	private String qrcode;
 	
@@ -43,6 +44,23 @@ public class Mesa implements Serializable{
 	
 	
 	
+
+	public String getQrcode() {
+		return qrcode;
+	}
+
+	public void setQrcode(String qrcode) {
+		this.qrcode = qrcode;
+	}
+
+	public Restaurante getRestaurante() {
+		return restaurante;
+	}
+
+	public void setRestaurante(Restaurante restaurante) {
+		this.restaurante = restaurante;
+	}
+
 	public long getId() {
 		return id;
 	}

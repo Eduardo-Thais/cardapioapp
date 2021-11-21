@@ -28,8 +28,9 @@ public class Pedido implements Serializable{
 	
 	
 	@ManyToOne
-	@JoinColumn(name = "mesa", nullable = false)
-	private Mesa mesa = new Mesa();
+	@JoinColumn(name = "mesa",referencedColumnName = "id", nullable = false)
+	private Mesa mesa;
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -63,6 +64,22 @@ public class Pedido implements Serializable{
 	
 	
 	
+
+	public float getConta() {
+		return conta;
+	}
+
+	public void setConta(float conta) {
+		this.conta = conta;
+	}
+
+	public Mesa getMesa() {
+		return mesa;
+	}
+
+	public void setMesa(Mesa mesa) {
+		this.mesa = mesa;
+	}
 
 	public long getId() {
 		return id;
