@@ -20,8 +20,8 @@ public class DataConfiguration {
         dataSource.setUrl(System.getenv("JDBC_DATABASE_URL"));
         //dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         //dataSource.setUrl("jdbc:mysql://localhost:3306/cardapiodb");
-        dataSource.setUsername("root");
-        dataSource.setPassword("");
+        //dataSource.setUsername("root");
+        //dataSource.setPassword("");
         return dataSource;
     }
 	
