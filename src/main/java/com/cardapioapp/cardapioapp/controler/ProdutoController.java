@@ -1,6 +1,7 @@
 package com.cardapioapp.cardapioapp.controler;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,8 +34,8 @@ public class ProdutoController {
 		return produto;
 	}
 	
-	@RequestMapping(value = "/deletaProduto")
-	public boolean deletaProduto(long id) {
+	@RequestMapping(value = "/deletaProduto/{id}")
+	public boolean deletaProduto(@PathVariable long id) {
 		Produto produto = pr.findById(id);
 		pr.delete(produto);
 		

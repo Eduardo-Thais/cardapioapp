@@ -1,6 +1,7 @@
 package com.cardapioapp.cardapioapp.controler;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,8 +32,8 @@ public class RestauranteController {
 		return restaurante;
 	}
 	
-	@RequestMapping(value = "/deletaRestaurante")
-	public boolean deletaRestaurante(long id) {
+	@RequestMapping(value = "/deletaRestaurante/{id}")
+	public boolean deletaRestaurante(@PathVariable long id) {
 		Restaurante restaurante = rr.findById(id);
 		rr.delete(restaurante);
 		
