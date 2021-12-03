@@ -15,22 +15,12 @@ public class Pedido implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	
-	
-	@ManyToMany(cascade = { CascadeType.ALL })
-    @JoinTable(
-        name = "Pedido_Produto", 
-        joinColumns = { @JoinColumn(name = "pedido_id") }, 
-        inverseJoinColumns = { @JoinColumn(name = "produto_id") }
-    )
-	private List<Produto> produtos = new ArrayList<Produto>();
-	
-	
-	
 	@ManyToOne
 	@JoinColumn(name = "mesa",referencedColumnName = "id", nullable = false)
 	private Mesa mesa;
 	
+	@OneToMany(mappedBy = "pedido")
+	private List<ProdutoPedido> produtoPedido = new ArrayList<>(0);
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,14 +31,6 @@ public class Pedido implements Serializable{
 	
 	
 	
-	
-	public List<Produto> getProdutos() {
-		return produtos;
-	}
-
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
-	}
 
 	public Pedido(float conta) {
 		super();

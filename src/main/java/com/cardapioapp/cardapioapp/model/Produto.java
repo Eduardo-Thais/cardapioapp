@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -23,8 +24,8 @@ public class Produto implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@ManyToMany(mappedBy="produtos", cascade = CascadeType.ALL)
-	private List<Pedido> pedidos = new ArrayList<Pedido>();
+	@OneToMany(mappedBy = "pedido")
+	private List<ProdutoPedido> produtoPedido = new ArrayList<>(0);
 	
 	private String descrição;
 	private String tipo;
@@ -46,13 +47,7 @@ public class Produto implements Serializable{
 	
 	
 	
-	public List<Pedido> getPedidos() {
-		return pedidos;
-	}
 
-	public void setPedidos(List<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}
 
 	public long getId() {
 		return id;
