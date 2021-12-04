@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.sun.istack.NotNull;
+
 
 
 @Entity
@@ -26,7 +28,9 @@ public class Administrador implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	@NotNull
 	private String nome;
+	@NotNull
 	private String senha;
 	
 	public Administrador(String nome, String senha) {

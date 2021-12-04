@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.sun.istack.NotNull;
+
 
 @Entity
 @Table(name = "Produto")
@@ -27,17 +29,20 @@ public class Produto implements Serializable{
 	@OneToMany(mappedBy = "pedido")
 	private List<ProdutoPedido> produtoPedido = new ArrayList<>(0);
 	
+	@NotNull
 	private String descrição;
+	@NotNull
 	private String tipo;
+	@NotNull
 	private float valor;
-	private float quantidade;
 	
-	public Produto(String descrição, String tipo, float valor, float quantidade) {
+	
+	public Produto(String descrição, String tipo, float valor) {
 		super();
 		this.descrição = descrição;
 		this.tipo = tipo;
 		this.valor = valor;
-		this.quantidade = quantidade;
+		
 		
 	}
 	
@@ -76,12 +81,7 @@ public class Produto implements Serializable{
 	public void setValor(float valor) {
 		this.valor = valor;
 	}
-	public float getQuantidade() {
-		return quantidade;
-	}
-	public void setQuantidade(float quantidade) {
-		this.quantidade = quantidade;
-	}
+
 	
 	
 	
