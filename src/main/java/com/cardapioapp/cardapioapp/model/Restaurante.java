@@ -48,6 +48,23 @@ public class Restaurante implements Serializable{
 	
 	
 	
+	
+	public List<Mesa> getMesa() {
+		return mesa;
+	}
+
+	public void setMesa(List<Mesa> mesa) {
+		this.mesa = mesa;
+	}
+
+	public List<Administrador> getAdministrador() {
+		return administrador;
+	}
+
+	public void setAdministrador(List<Administrador> administrador) {
+		this.administrador = administrador;
+	}
+
 	public long getId() {
 		return id;
 	}
