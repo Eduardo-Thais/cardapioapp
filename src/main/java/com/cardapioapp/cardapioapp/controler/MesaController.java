@@ -27,9 +27,8 @@ public class MesaController {
 	@RequestMapping(value = "/cadastrarMesa", method = RequestMethod.POST)
 	public boolean cadastrarMesa(@RequestBody Mesa cadastro) throws Exception{
 		
-		cadastro.getQrcode();
 		String path = "D:\\qrcode\\" + cadastro.getNome() + ".jpg";
-		BitMatrix matrix = new MultiFormatWriter().encode(cadastro.getQrcode(), BarcodeFormat.QR_CODE, 500, 500);
+		BitMatrix matrix = new MultiFormatWriter().encode(cadastro.getNome(), BarcodeFormat.QR_CODE, 500, 500);
 		MatrixToImageWriter.writeToPath(matrix, "jpg", Paths.get(path));
 		
 		mr.save(cadastro);

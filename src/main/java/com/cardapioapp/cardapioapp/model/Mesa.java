@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import org.hibernate.annotations.Cascade;
+
 
 
 @Entity
@@ -28,16 +28,23 @@ public class Mesa implements Serializable{
 	private Restaurante restaurante;
 	
 	
-	private String qrcode;
+	@Lob
+	@Column(columnDefinition="mediumblob")
+	private byte[] qrcode;
 	
 	
 	
-	public Mesa(String qrcode) {
+	private String nome;
+	
+	public Mesa(byte[] qrcode,String nome) {
 		super();
 		this.qrcode = qrcode;
-		
+		this.nome = nome;
 	}
-	
+
+
+
+
 	public Mesa() {
 		
 	}
@@ -45,11 +52,25 @@ public class Mesa implements Serializable{
 	
 	
 
-	public String getQrcode() {
+	public String getNome() {
+		return nome;
+	}
+
+
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+
+
+	public byte[] getQrcode() {
 		return qrcode;
 	}
 
-	public void setQrcode(String qrcode) {
+	public void setQrcode(byte[] qrcode) {
 		this.qrcode = qrcode;
 	}
 
@@ -67,14 +88,6 @@ public class Mesa implements Serializable{
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-
-	public String getNome() {
-		return qrcode;
-	}
-	public void setNome(String qrcode) {
-		this.qrcode = qrcode;
 	}
 
 	
