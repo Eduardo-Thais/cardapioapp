@@ -29,7 +29,7 @@ public class Mesa implements Serializable{
 	
 	
 	@Lob
-	@Column(columnDefinition="mediumblob")
+	@Column(nullable=false, columnDefinition="mediumblob")
 	private byte[] qrcode;
 	
 	

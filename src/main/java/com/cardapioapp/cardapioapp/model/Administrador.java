@@ -11,18 +11,13 @@ import com.sun.istack.NotNull;
 
 
 @Entity
-@Table(name = "Administrador")
 public class Administrador implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToMany(cascade = { CascadeType.ALL })
-    @JoinTable(
-        name = "Adiministrador_Restaurante", 
-        joinColumns = { @JoinColumn(name = "administrador_id") }, 
-        inverseJoinColumns = { @JoinColumn(name = "restaurante_id") }
-    )
-	private List<Restaurante> restaurante = new ArrayList<Restaurante>();
+	
+	@OneToMany(mappedBy = "administrador")
+	private List<AdministradorRestaurante> administradorRestaurante = new ArrayList<>(0);
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,6 +42,14 @@ public class Administrador implements Serializable{
 	
 	
 	
+	public List<AdministradorRestaurante> getAdministradorRestaurante() {
+		return administradorRestaurante;
+	}
+
+	public void setAdministradorRestaurante(List<AdministradorRestaurante> administradorRestaurante) {
+		this.administradorRestaurante = administradorRestaurante;
+	}
+
 	public long getId() {
 		return id;
 	}

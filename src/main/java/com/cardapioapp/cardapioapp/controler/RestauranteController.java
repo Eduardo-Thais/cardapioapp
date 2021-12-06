@@ -1,16 +1,19 @@
 package com.cardapioapp.cardapioapp.controler;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cardapioapp.cardapioapp.model.Administrador;
 import com.cardapioapp.cardapioapp.model.Restaurante;
 import com.cardapioapp.cardapioapp.repository.RestauranteRepository;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8080")
 public class RestauranteController {
 	
 	@Autowired
@@ -18,6 +21,8 @@ public class RestauranteController {
 	
 	@RequestMapping(value = "/cadastrarRestaurante", method = RequestMethod.POST)
 	public boolean cadastrarRestaurante(@RequestBody Restaurante cadastro){
+		
+		
 		
 		rr.save(cadastro);
 		

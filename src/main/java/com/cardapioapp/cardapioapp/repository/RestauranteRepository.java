@@ -6,4 +6,5 @@ import com.cardapioapp.cardapioapp.model.Restaurante;
 
 public interface RestauranteRepository extends CrudRepository<Restaurante, String>{
 	Restaurante findById(long id);
+	
 }

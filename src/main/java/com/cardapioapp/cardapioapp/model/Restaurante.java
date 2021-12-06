@@ -24,12 +24,12 @@ public class Restaurante implements Serializable{
 	
 	@OneToMany(mappedBy="restaurante")
 	private List<Mesa> mesa = new ArrayList<>(0);
+	
+	
+	
+	@OneToMany(mappedBy = "restaurante")
+	private List<AdministradorRestaurante> administradorRestaurante = new ArrayList<>(0);
 
-	
-	
-	
-	@ManyToMany(mappedBy="restaurante", cascade = CascadeType.ALL)
-	private List<Administrador> administrador = new ArrayList<Administrador>();
 	
 	private String nome;
 	private String cnpj;
@@ -49,6 +49,14 @@ public class Restaurante implements Serializable{
 	
 	
 	
+	public List<AdministradorRestaurante> getAdministradorRestaurante() {
+		return administradorRestaurante;
+	}
+
+	public void setAdministradorRestaurante(List<AdministradorRestaurante> administradorRestaurante) {
+		this.administradorRestaurante = administradorRestaurante;
+	}
+
 	public List<Mesa> getMesa() {
 		return mesa;
 	}
@@ -57,13 +65,6 @@ public class Restaurante implements Serializable{
 		this.mesa = mesa;
 	}
 
-	public List<Administrador> getAdministrador() {
-		return administrador;
-	}
-
-	public void setAdministrador(List<Administrador> administrador) {
-		this.administrador = administrador;
-	}
 
 	public long getId() {
 		return id;
