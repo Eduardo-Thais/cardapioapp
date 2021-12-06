@@ -13,7 +13,6 @@ import com.cardapioapp.cardapioapp.repository.PedidoRepository;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
 public class PedidoController {
 
 	@Autowired

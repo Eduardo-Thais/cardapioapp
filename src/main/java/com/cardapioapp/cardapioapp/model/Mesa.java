@@ -28,17 +28,16 @@ public class Mesa implements Serializable{
 	private Restaurante restaurante;
 	
 	
-	@Lob
-	@Column(nullable=false, columnDefinition="mediumblob")
-	private byte[] qrcode;
+//	@Lob
+//	@Column(nullable=false, columnDefinition="mediumblob")
+//	private byte[] qrcode;
 	
 	
 	
 	private String nome;
 	
-	public Mesa(byte[] qrcode,String nome) {
+	public Mesa(String nome) {
 		super();
-		this.qrcode = qrcode;
 		this.nome = nome;
 	}
 
@@ -66,13 +65,13 @@ public class Mesa implements Serializable{
 
 
 
-	public byte[] getQrcode() {
-		return qrcode;
-	}
-
-	public void setQrcode(byte[] qrcode) {
-		this.qrcode = qrcode;
-	}
+//	public byte[] getQrcode() {
+//		return qrcode;
+//	}
+//
+//	public void setQrcode(byte[] qrcode) {
+//		this.qrcode = qrcode;
+//	}
 
 	public Restaurante getRestaurante() {
 		return restaurante;

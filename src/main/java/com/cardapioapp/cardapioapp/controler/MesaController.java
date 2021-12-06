@@ -4,7 +4,6 @@ import java.io.ByteArrayOutputStream;
 import java.nio.file.Paths;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +18,7 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
+
 public class MesaController {
 	
 	
@@ -30,15 +29,18 @@ public class MesaController {
 	@RequestMapping(value = "/cadastrarMesa", method = RequestMethod.POST)
 	public boolean cadastrarMesa(@RequestBody Mesa cadastro) throws Exception{
 		
-		ByteArrayOutputStream out = new ByteArrayOutputStream();
+//		ByteArrayOutputStream out = new ByteArrayOutputStream();
+//		
+//		
+//		BitMatrix matrix = new MultiFormatWriter().encode(cadastro.getNome(), BarcodeFormat.QR_CODE, 500, 500);
+//		MatrixToImageWriter.writeToStream(matrix, "jpg", out);
+//		
+//		byte[] pngData = out.toByteArray();
+//		
+//		cadastro.setQrcode(pngData);
 		
 		
-		BitMatrix matrix = new MultiFormatWriter().encode(cadastro.getNome(), BarcodeFormat.QR_CODE, 500, 500);
-		MatrixToImageWriter.writeToStream(matrix, "jpg", out);
 		
-		byte[] pngData = out.toByteArray();
-		
-		cadastro.setQrcode(pngData);
 		
 		mr.save(cadastro);
 		

@@ -12,7 +12,6 @@ import com.cardapioapp.cardapioapp.model.AdministradorRestaurante;
 import com.cardapioapp.cardapioapp.repository.AdministradorRestauranteRepository;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
 public class AdministradorRestauranteController {
 	
 	@Autowired

@@ -14,7 +14,6 @@ import com.cardapioapp.cardapioapp.repository.ProdutoRepository;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
 public class ProdutoController {
 	
 	@Autowired
