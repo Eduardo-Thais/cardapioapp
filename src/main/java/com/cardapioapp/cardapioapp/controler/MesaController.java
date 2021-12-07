@@ -1,7 +1,6 @@
 package com.cardapioapp.cardapioapp.controler;
 
-import java.io.ByteArrayOutputStream;
-import java.nio.file.Paths;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,10 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cardapioapp.cardapioapp.model.Mesa;
 import com.cardapioapp.cardapioapp.repository.MesaRepository;
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.client.j2se.MatrixToImageWriter;
-import com.google.zxing.common.BitMatrix;
+
 
 @RestController
 
