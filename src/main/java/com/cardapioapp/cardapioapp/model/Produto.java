@@ -17,7 +17,6 @@ import com.sun.istack.NotNull;
 
 
 @Entity
-@Table(name = "Produto")
 public class Produto implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -26,7 +25,7 @@ public class Produto implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@OneToMany(mappedBy = "pedido")
+	@OneToMany(mappedBy = "produto")
 	private List<ProdutoPedido> produtoPedido = new ArrayList<>(0);
 	
 	@NotNull
@@ -53,6 +52,14 @@ public class Produto implements Serializable{
 	
 	
 
+
+	public List<ProdutoPedido> getProdutoPedido() {
+		return produtoPedido;
+	}
+
+	public void setProdutoPedido(List<ProdutoPedido> produtoPedido) {
+		this.produtoPedido = produtoPedido;
+	}
 
 	public long getId() {
 		return id;

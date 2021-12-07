@@ -16,8 +16,7 @@ public class Administrador implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	
-	@OneToMany(mappedBy = "administrador")
-	private List<AdministradorRestaurante> administradorRestaurante = new ArrayList<>(0);
+
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +26,11 @@ public class Administrador implements Serializable{
 	private String nome;
 	@NotNull
 	private String senha;
+
+	
+	@OneToMany(mappedBy = "administrador")
+	private List<AdministradorRestaurante> administradorRestaurante = new ArrayList<>(0);
+	
 	
 	public Administrador(String nome, String senha) {
 		super();

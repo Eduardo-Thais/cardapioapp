@@ -10,7 +10,6 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "Pedido")
 public class Pedido implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -46,6 +45,14 @@ public class Pedido implements Serializable{
 	
 	
 	
+
+	public List<ProdutoPedido> getProdutoPedido() {
+		return produtoPedido;
+	}
+
+	public void setProdutoPedido(List<ProdutoPedido> produtoPedido) {
+		this.produtoPedido = produtoPedido;
+	}
 
 	public float getConta() {
 		return conta;

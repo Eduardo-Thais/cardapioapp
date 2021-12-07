@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 
@@ -23,11 +24,11 @@ public class AdministradorRestaurante implements Serializable{
 	
 	
 	@ManyToOne
-	@MapsId("id")
+	@JoinColumn(name = "restaurante",referencedColumnName = "id", nullable=false)
 	private Restaurante restaurante;
 	
 	@ManyToOne
-	@MapsId("id")
+	@JoinColumn(name = "administrador",referencedColumnName = "id", nullable=false)
 	private Administrador administrador;
 
 	
@@ -37,7 +38,9 @@ public class AdministradorRestaurante implements Serializable{
 	public AdministradorRestaurante() {
 		super();
 	}
-
+	
+	
+	
 	public AdministradorRestaurante(long id) {
 		super();
 		this.id = id;
@@ -52,7 +55,23 @@ public class AdministradorRestaurante implements Serializable{
 		this.id = id;
 	}
 
+	public Restaurante getRestaurante() {
+		return restaurante;
+	}
 
+	public void setRestaurante(Restaurante restaurante) {
+		this.restaurante = restaurante;
+	}
+
+	public Administrador getAdministrador() {
+		return administrador;
+	}
+
+	public void setAdministrador(Administrador administrador) {
+		this.administrador = administrador;
+	}
+
+	
 
 	
 	
