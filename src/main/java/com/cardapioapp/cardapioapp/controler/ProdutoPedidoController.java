@@ -19,8 +19,6 @@ public class ProdutoPedidoController {
 	
 	@RequestMapping(value = "/cadastrarPP", method = RequestMethod.POST)
 	public boolean cadastrarProdutoPedido(@RequestBody ProdutoPedido cadastro){
-		System.out.println(cadastro.getPedido());
-		System.out.println(cadastro.getProduto());
 		
 		
 		ppr.save(cadastro);
