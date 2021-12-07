@@ -1,5 +1,7 @@
 package com.cardapioapp.cardapioapp.controler;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -51,6 +53,11 @@ public class ProdutoController {
 		
 		
 		return true;
+	}
+
+	@RequestMapping("/Produto/filter/{tipo}")
+	public List<Produto> encontrarPorTipo(@PathVariable("tipo")String tipo){
+		return pr.findByTipoContains(tipo);
 	}
 
 }

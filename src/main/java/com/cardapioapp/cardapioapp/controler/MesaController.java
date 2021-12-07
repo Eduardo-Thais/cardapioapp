@@ -14,7 +14,6 @@ import com.cardapioapp.cardapioapp.repository.MesaRepository;
 
 
 @RestController
-
 public class MesaController {
 	
 	
@@ -23,7 +22,7 @@ public class MesaController {
 	private MesaRepository mr;
 	
 	@RequestMapping(value = "/cadastrarMesa", method = RequestMethod.POST)
-	public boolean cadastrarMesa(@RequestBody Mesa cadastro) throws Exception{
+	public boolean cadastrarMesa(@RequestBody Mesa cadastro){
 		
 //		ByteArrayOutputStream out = new ByteArrayOutputStream();
 //		

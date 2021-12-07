@@ -34,6 +34,14 @@ public class PedidoController {
 		return pedido;
 	}
 	
+	@RequestMapping(value = "/listarPedido/{mesa}")
+	public boolean listaPedidoMesa(@PathVariable long mesa) {
+		Pedido pedido = pr.findByMesa(mesa);
+		pr.delete(pedido);
+		
+		return true;
+	}
+	
 	@RequestMapping(value = "/deletaPedido/{id}")
 	public boolean deletaPedido(@PathVariable long id) {
 		Pedido pedido = pr.findById(id);
