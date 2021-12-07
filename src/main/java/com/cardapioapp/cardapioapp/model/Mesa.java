@@ -73,13 +73,6 @@ public class Mesa implements Serializable{
 //		this.qrcode = qrcode;
 //	}
 
-	public Restaurante getRestaurante() {
-		return restaurante;
-	}
-
-	public void setRestaurante(Restaurante restaurante) {
-		this.restaurante = restaurante;
-	}
 
 	public long getId() {
 		return id;

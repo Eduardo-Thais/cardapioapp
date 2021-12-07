@@ -52,21 +52,7 @@ public class AdministradorRestaurante implements Serializable{
 		this.id = id;
 	}
 
-	public Administrador getAdministrador() {
-		return administrador;
-	}
 
-	public void setAdministrador(Administrador administrador) {
-		this.administrador = administrador;
-	}
-
-	public Restaurante getRestaurante() {
-		return restaurante;
-	}
-
-	public void setRestaurante(Restaurante restaurante) {
-		this.restaurante = restaurante;
-	}
 
 	
 	
