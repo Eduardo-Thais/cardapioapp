@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,7 +28,7 @@ public class Produto implements Serializable{
 	@OneToMany(mappedBy = "produto")
 	private List<ProdutoPedido> produtoPedido = new ArrayList<>(0);
 	
-	@NotNull
+	@Column(name= "descricao", nullable=false)
 	private String descricao;
 	@NotNull
 	private String tipo;
@@ -63,10 +63,10 @@ public class Produto implements Serializable{
 	}
 
 
-	public String getDescrição() {
+	public String getDescricao() {
 		return descricao;
 	}
-	public void setDescrição(String descricao) {
+	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
 	public String getTipo() {
