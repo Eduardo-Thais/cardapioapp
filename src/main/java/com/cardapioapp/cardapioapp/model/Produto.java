@@ -53,13 +53,6 @@ public class Produto implements Serializable{
 	
 
 
-	public List<ProdutoPedido> getProdutoPedido() {
-		return produtoPedido;
-	}
-
-	public void setProdutoPedido(List<ProdutoPedido> produtoPedido) {
-		this.produtoPedido = produtoPedido;
-	}
 
 	public long getId() {
 		return id;

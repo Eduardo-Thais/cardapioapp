@@ -30,13 +30,13 @@ public class AdministradorRestauranteController {
 	}
 	
 	
-	@RequestMapping("/listarAdministradorRestaurante")
+	@RequestMapping("/listarAR")
 	public Iterable<AdministradorRestaurante> listarAdministradorRestaurante() {
 		Iterable<AdministradorRestaurante> administradorRestaurante = arr.findAll();
 		return administradorRestaurante;
 	}
 	
-	@RequestMapping(value = "/deletaAdministradorRestaurante/{id}")
+	@RequestMapping(value = "/deletaAR/{id}")
 	public boolean deletaAdministradorRestaurante(@PathVariable long id) {
 		AdministradorRestaurante administradorRestaurante = arr.findById(id);
 		arr.delete(administradorRestaurante);
@@ -44,7 +44,7 @@ public class AdministradorRestauranteController {
 		return true;
 	}
 	
-	@RequestMapping(value = "/editaAdministradorRestaurante")
+	@RequestMapping(value = "/editaAR")
 	public boolean editaAdministradorRestaurante(@RequestBody AdministradorRestaurante cadastro, long id) {
 		cadastro.setId(id);
 		
