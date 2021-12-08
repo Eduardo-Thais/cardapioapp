@@ -49,8 +49,18 @@ public class PedidoController {
 		return true;
 	}
 	
-	@RequestMapping(value = "/editaPedido")
-	public boolean editaPedido(@RequestBody Pedido cadastro, long id) {
+	@RequestMapping(value = "/editaPedido/{id}")
+	public boolean editaPedido(@RequestBody Pedido cadastro, @PathVariable long id) {
+		
+		cadastro.setId(id);
+		
+		pr.save(cadastro);
+		
+		
+		return true;
+	}
+	
+	public boolean editaPedidoAutomatico(Pedido cadastro, long id) {
 		cadastro.setId(id);
 		
 		pr.save(cadastro);
