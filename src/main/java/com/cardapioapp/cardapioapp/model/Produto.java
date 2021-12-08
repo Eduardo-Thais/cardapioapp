@@ -29,16 +29,16 @@ public class Produto implements Serializable{
 	private List<ProdutoPedido> produtoPedido = new ArrayList<>(0);
 	
 	@NotNull
-	private String descrição;
+	private String descricao;
 	@NotNull
 	private String tipo;
 	@NotNull
 	private float valor;
 	
 	
-	public Produto(String descrição, String tipo, float valor) {
+	public Produto(String descricao, String tipo, float valor) {
 		super();
-		this.descrição = descrição;
+		this.descricao = descricao;
 		this.tipo = tipo;
 		this.valor = valor;
 		
@@ -64,10 +64,10 @@ public class Produto implements Serializable{
 
 
 	public String getDescrição() {
-		return descrição;
+		return descricao;
 	}
-	public void setDescrição(String descrição) {
-		this.descrição = descrição;
+	public void setDescrição(String descricao) {
+		this.descricao = descricao;
 	}
 	public String getTipo() {
 		return tipo;
