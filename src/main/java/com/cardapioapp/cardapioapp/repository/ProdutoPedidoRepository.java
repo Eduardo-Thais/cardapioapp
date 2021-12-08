@@ -6,4 +6,5 @@ import com.cardapioapp.cardapioapp.model.ProdutoPedido;
 
 public interface ProdutoPedidoRepository extends CrudRepository<ProdutoPedido, String>{
 	ProdutoPedido findById(long id);
+	void deleteByPedidoId(long id);
 }

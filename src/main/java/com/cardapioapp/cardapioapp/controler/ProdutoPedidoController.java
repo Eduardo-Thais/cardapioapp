@@ -53,10 +53,10 @@ public class ProdutoPedidoController {
 		return produtoPedido;
 	}
 	
-	@RequestMapping(value = "/deletaProdutoPedido/{id}")
+	@RequestMapping(value = "/deletaPP/{id}")
 	public boolean deletaProdutoPedido(@PathVariable long id) {
-		ProdutoPedido produtoPedido = ppr.findById(id);
-		ppr.delete(produtoPedido);
+		
+		ppr.deleteByPedidoId(id);
 		
 		return true;
 	}
