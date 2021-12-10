@@ -6,6 +6,6 @@ import com.cardapioapp.cardapioapp.model.Pedido;
 
 public interface PedidoRepository extends CrudRepository<Pedido, String>{
 	Pedido findById(long id);
-	Pedido findByMesaId(long mesa);
+	Iterable<Pedido> findByMesaId(long mesa);
 	
 }
