@@ -7,5 +7,5 @@ import com.cardapioapp.cardapioapp.model.Mesa;
 
 public interface MesaRepository extends CrudRepository<Mesa, String>{
 	Mesa findById(long id);
-	
+	Mesa findByNome(String mesa);
 }

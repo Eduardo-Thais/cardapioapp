@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cardapioapp.cardapioapp.model.Mesa;
 import com.cardapioapp.cardapioapp.model.Pedido;
+import com.cardapioapp.cardapioapp.repository.MesaRepository;
 import com.cardapioapp.cardapioapp.repository.PedidoRepository;
 
 
@@ -17,8 +19,22 @@ public class PedidoController {
 	@Autowired
 	private PedidoRepository pr;
 	
+	@Autowired
+	private MesaRepository mr;
+	
 	@RequestMapping(value = "/cadastrarPedido", method = RequestMethod.POST)
 	public boolean cadastrarPedido(@RequestBody Pedido cadastro){
+		
+		pr.save(cadastro);
+		
+		return true;
+		
+	}
+	
+	@RequestMapping(value = "/cadastrarPedido/{mesaNome}", method = RequestMethod.POST)
+	public boolean cadastrarPedidoPorMesa(@RequestBody Pedido cadastro,@PathVariable String mesaNome){
+		Mesa mesaIn = mr.findByNome(mesaNome);
+		cadastro.setMesa(mesaIn);
 		
 		pr.save(cadastro);
 		
