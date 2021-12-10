@@ -34,8 +34,8 @@ public class PedidoController {
 	}
 	
 	@RequestMapping(value = "/listarPedido/{mesaid}")
-	public Iterable<Pedido> listaPedidoMesa(@PathVariable long mesaid) {
-		Iterable<Pedido> pedido = pr.findByMesaId(mesaid);
+	public Pedido listaPedidoMesa(@PathVariable long mesaid) {
+		Pedido pedido = pr.findByMesaId(mesaid);
 		
 		
 		return pedido;
