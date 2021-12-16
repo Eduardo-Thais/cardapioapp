@@ -13,6 +13,7 @@ import com.cardapioapp.cardapioapp.model.Restaurante;
 import com.cardapioapp.cardapioapp.repository.RestauranteRepository;
 
 @RestController
+@CrossOrigin(origins = "https://tcc-restaurante.herokuapp.com")
 public class RestauranteController {
 	
 	@Autowired

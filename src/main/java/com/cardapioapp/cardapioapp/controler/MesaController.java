@@ -15,6 +15,7 @@ import com.cardapioapp.cardapioapp.repository.MesaRepository;
 
 
 @RestController
+@CrossOrigin(origins = "https://tcc-restaurante.herokuapp.com")
 public class MesaController {
 	
 	
