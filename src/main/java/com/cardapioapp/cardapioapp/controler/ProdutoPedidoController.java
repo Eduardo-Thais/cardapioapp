@@ -3,6 +3,7 @@ package com.cardapioapp.cardapioapp.controler;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import com.cardapioapp.cardapioapp.repository.ProdutoPedidoRepository;
 import com.cardapioapp.cardapioapp.repository.ProdutoRepository;
 
 @RestController
+@CrossOrigin(origins = "https://tcc-restaurante.herokuapp.com")
 public class ProdutoPedidoController {
 	@Autowired
 	private ProdutoPedidoRepository ppr;
