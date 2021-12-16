@@ -15,7 +15,6 @@ import com.cardapioapp.cardapioapp.repository.PedidoRepository;
 
 
 @RestController
-@CrossOrigin(origins = "https://tcc-restaurante.herokuapp.com")
 public class PedidoController {
 
 	@Autowired
